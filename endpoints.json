@@ -1,0 +1,71 @@
+exemplos de JSON para Endpoints
+Registrar um novo usuário
+URL: /auth/register
+Método: POST
+Corpo da Requisição:
+json
+
+{
+  "email": "example@example.com",
+  "password": "password123"
+}
+Resposta de Sucesso (Código 201 Created):
+json
+Copiar código
+{
+  "message": "Usuário registrado com sucesso"
+}
+Resposta de Erro (Código 400 Bad Request):
+json
+
+{
+  "message": "O email já está em uso"
+}
+Autenticar um usuário
+URL: /auth/login
+Método: POST
+Corpo da Requisição:
+json
+
+{
+  "email": "example@example.com",
+  "password": "password123"
+}
+Resposta de Sucesso (Código 200 OK):
+json
+
+{
+  "accessToken": "token_de_acesso_jwt"
+}
+Resposta de Erro (Código 401 Unauthorized):
+json
+
+{
+  "message": "Credenciais inválidas"
+}
+Criar um novo baralho
+URL: /deck
+Método: POST
+Cabeçalho da Requisição:
+plaintext
+
+Authorization: Bearer token_de_acesso_jwt
+Corpo da Requisição:
+json
+
+{
+  "name": "Meu Baralho"
+}
+Resposta de Sucesso (Código 201 Created):
+json
+Copiar código
+{
+  "id": "id_do_novo_baralho",
+  "name": "Meu Baralho"
+}
+Resposta de Erro (Código 401 Unauthorized):
+json
+Copiar código
+{
+  "message": "Token de acesso inválido"
+}
