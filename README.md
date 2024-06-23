@@ -131,3 +131,166 @@ mean: ........................................................................ 2
 median: ...................................................................... 26.3
 p95: ......................................................................... 26.3
 p99: ......................................................................... 26.3
+
+##Endpoints
+POST /deck
+Descrição: Cria um novo baralho.
+
+Corpo da Requisição:
+
+json
+
+{
+"name": "string"
+}
+name (string, obrigatório): Nome do baralho a ser criado.
+Resposta de Sucesso:
+
+Código: 201 Created
+Exemplo:
+json
+
+{
+"id": "string",
+"name": "string"
+}
+id (string): Identificador único do baralho criado.
+name (string): Nome do baralho.
+Resposta de Erro:
+
+Código: 400 Bad Request
+Exemplo:
+json
+
+{
+"message": "string"
+}
+message (string): Mensagem de erro detalhando o motivo da falha na requisição. 2. GET /deck
+Descrição: Retorna todos os baralhos cadastrados.
+Resposta de Sucesso:
+Código: 200 OK
+Exemplo:
+json
+
+[
+{
+"id": "string",
+"name": "string"
+},
+{
+"id": "string",
+"name": "string"
+}
+]
+id (string): Identificador único do baralho.
+name (string): Nome do baralho. 3. GET /deck/
+Descrição: Retorna um baralho específico pelo seu identificador.
+
+Parâmetros de URL:
+
+id (string, obrigatório): Identificador único do baralho.
+Resposta de Sucesso:
+
+Código: 200 OK
+Exemplo:
+json
+
+{
+"id": "string",
+"name": "string"
+}
+id (string): Identificador único do baralho.
+name (string): Nome do baralho.
+Resposta de Erro:
+
+Código: 404 Not Found
+Exemplo:
+json
+
+{
+"message": "string"
+}
+message (string): Mensagem de erro indicando que o baralho com o ID especificado não foi encontrado. 4. PUT /deck/
+Descrição: Atualiza um baralho existente pelo seu identificador.
+
+Parâmetros de URL:
+
+id (string, obrigatório): Identificador único do baralho.
+Corpo da Requisição:
+
+json
+
+{
+"name": "string"
+}
+name (string, obrigatório): Novo nome para o baralho.
+Resposta de Sucesso:
+
+Código: 200 OK
+Exemplo:
+json
+
+{
+"id": "string",
+"name": "string"
+}
+id (string): Identificador único do baralho atualizado.
+name (string): Nome atualizado do baralho.
+Resposta de Erro:
+
+Código: 404 Not Found
+Exemplo:
+json
+
+{
+"message": "string"
+}
+message (string): Mensagem de erro indicando que o baralho com o ID especificado não foi encontrado. 5. DELETE /deck/
+Descrição: Remove um baralho pelo seu identificador.
+
+Parâmetros de URL:
+
+id (string, obrigatório): Identificador único do baralho.
+Resposta de Sucesso:
+
+Código: 200 OK
+Exemplo:
+json
+
+{
+"id": "string",
+"name": "string"
+}
+id (string): Identificador único do baralho removido.
+name (string): Nome do baralho removido.
+Resposta de Erro:
+
+Código: 404 Not Found
+Exemplo:
+json
+
+{
+"message": "string"
+}
+message (string): Mensagem de erro indicando que o baralho com o ID especificado não foi encontrado. 6. POST /deck/fetch-and-save-cards
+Descrição: Inicia o processo de buscar e salvar cartas de um novo baralho da API externa.
+
+Resposta de Sucesso:
+
+Código: 200 OK
+Exemplo:
+json
+
+{
+"message": "Processo de buscar e salvar cartas iniciado."
+}
+Resposta de Erro:
+
+Código: 500 Internal Server Error
+Exemplo:
+json
+
+{
+"message": "Erro ao buscar ou salvar as cartas: Detalhes do erro."
+}
+message (string): Mensagem de erro indicando o motivo da falha ao buscar ou salvar as cartas.
