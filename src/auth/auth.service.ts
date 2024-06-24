@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { UsersService } from './users/users.service'; // Verifique o caminho correto
-import { User } from './users/interfaces/user.interface'; // Importe corretamente
+import { UsersService } from './users/users.service';
+import { User } from './users/interfaces/user.interface';
 
 @Injectable()
 export class AuthService {

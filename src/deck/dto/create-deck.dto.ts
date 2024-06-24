@@ -1,4 +1,3 @@
-// src/deck/dto/create-deck.dto.ts
 export class CreateDeckDto {
   readonly deckId: string;
   readonly shuffled: boolean;
